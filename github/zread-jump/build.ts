@@ -7,7 +7,7 @@ const HEADER = `// ==UserScript==
 // @name         Zread ↔ GitHub Jump
 // @name:zh-CN   Zread ↔ GitHub 互跳
 // @namespace    bhxch.userscript.zread-jump
-// @version      0.1.0
+// @version      0.2.0
 // @description  Cross-link GitHub repos with their Zread pages; any subpath, query or route leads to the other site's repo home.
 // @description:zh-CN 在 GitHub 仓库页与 Zread 仓库页之间互相跳转：任意子路径、参数、路由都只取对方仓库首页。
 // @author       bhxch

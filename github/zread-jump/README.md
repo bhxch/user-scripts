@@ -31,6 +31,7 @@ bun test github/zread-jump/      # URL 映射纯函数单测
   Star 按钮的页面）退而插在面包屑仓库名旁。样式自带浅色/深色（跟随系统）。
 - **Zread 仓库页**：页头仓库名下拉旁的动作组里出现 GitHub 图标（`currentColor`，随主题
   明暗自适应）。
+- 两侧按钮均在新标签页打开对方仓库（`target="_blank"` + `rel="noreferrer"`），不丢当前页。
 - **只认 `owner/repo`**：`/o/r/blob/main/src/x.ts?plain=1#L12`、Zread 的 `/o/r/chat/…`
   等一律跳对方 `/o/r`；GitHub 顶层固定路由（`/settings`、`/explore`、`/orgs/…`）与用户
   页固定子路由（`/u/repos`、`/u/packages` 等）、Zread 功能路由（`/login`、`/explore` 等）

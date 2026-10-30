@@ -32,6 +32,8 @@ bun test github/zread-jump/      # unit tests for the URL-mapping pure functions
   Ships light/dark styles (follows the system preference).
 - **Zread repo pages**: a GitHub icon in the header action group next to the repo-name
   dropdown (`currentColor`, adapts to the site theme).
+- Both buttons open the other site in a new tab (`target="_blank"` +
+  `rel="noreferrer"`), keeping the current page.
 - **`owner/repo` only**: `/o/r/blob/main/src/x.ts?plain=1#L12`, Zread's `/o/r/chat/…` and
   the like all lead to `/o/r` on the other site; GitHub top-level fixed routes
   (`/settings`, `/explore`, `/orgs/…`), fixed user-page subroutes (`/u/repos`,

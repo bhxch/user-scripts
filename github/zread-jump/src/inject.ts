@@ -41,6 +41,8 @@ function ensureLink(inner: string): HTMLAnchorElement {
     link = document.createElement("a");
     link.id = LINK_ID;
     link.innerHTML = inner;
+    link.target = "_blank";
+    link.rel = "noreferrer";
   }
   return link;
 }
