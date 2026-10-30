@@ -1,0 +1,28 @@
+// ==UserScript==
+// @name         Zread ↔ GitHub Jump
+// @name:zh-CN   Zread ↔ GitHub 互跳
+// @namespace    bhxch.userscript.zread-jump
+// @version      0.1.0
+// @description  Cross-link GitHub repos with their Zread pages; any subpath, query or route leads to the other site's repo home.
+// @description:zh-CN 在 GitHub 仓库页与 Zread 仓库页之间互相跳转：任意子路径、参数、路由都只取对方仓库首页。
+// @author       bhxch
+// @match        https://github.com/*
+// @match        https://zread.ai/*
+// @grant        none
+// @run-at       document-idle
+// @noframes
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=zread.ai
+// ==/UserScript==
+// 本仓库暂无 git remote，@updateURL/@downloadURL 无处可指；确定托管地址后补回这两行。
+function l(e){if(document.getElementById("zread-jump-style"))return;let t=document.createElement("style");t.id="zread-jump-style",t.textContent=e,document.head.appendChild(t)}function a(e){let t=document.getElementById("zread-jump-link");if(t===null)t=document.createElement("a"),t.id="zread-jump-link",t.innerHTML=e;return t}function u(){let e=document.getElementById("zread-jump-link");if(e===null)return;e.closest("li")?.remove(),e.remove()}function c(e,t,r){if(e.getAttribute("href")!==t)e.setAttribute("href",t);e.title=r}function v(){let e=document.querySelector('[data-testid="star-button"]')?.closest("li")??null;if(e!==null)return e;return document.querySelector('[data-testid="breadcrumbs-repo-link"]')?.closest("li")??null}function d(e){l(`
+#zread-jump-link{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;
+  border:1px solid rgba(31,35,40,.15);border-radius:6px;background:#f6f8fa;color:#24292f;
+  font:500 12px/20px -apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;
+  text-decoration:none;cursor:pointer;vertical-align:middle}
+#zread-jump-link:hover{background:#eaeef2;text-decoration:none}
+@media (prefers-color-scheme:dark){
+  #zread-jump-link{border-color:rgba(240,246,252,.1);background:#212830;color:#f0f6fc}
+  #zread-jump-link:hover{background:#262c36}
+}`);let t=a('<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5" fill="#2563eb"/><path d="M8 8h8l-8 8h8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Zread</span>');if(e===null){u();return}c(t,e,"View this repo on Zread");let r=v();if(r===null)return;let n=t.parentElement;if(n!==null&&n.tagName==="LI"&&n.isConnected){if(r.nextElementSibling!==n)r.insertAdjacentElement("afterend",n)}else{let s=document.createElement("li");s.appendChild(t),r.insertAdjacentElement("afterend",s)}}function p(e){l(`
+#zread-jump-link{display:inline-flex;align-items:center;color:inherit;opacity:.75;cursor:pointer}
+#zread-jump-link:hover{opacity:1}`);let t=a('<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>');if(e===null){u();return}c(t,e,"View this repo on GitHub");let n=document.querySelector('header [data-slot="dropdown-menu-trigger"]')?.parentElement??null;if(n===null)return;if(t.parentElement===n&&t.isConnected)return;n.appendChild(t)}var S=new Set(["settings","orgs","enterprises","notifications","inbox","explore","marketplace","topics","collections","trending","events","sponsors","features","pricing","security","login","signup","logout","session","new","import","dashboard","codespaces","search","advanced","pulls","issues","apps","gist","gists","about","contact","careers","customer-stories","readme","education","admin","account","billing","pay","site","developer","git","status","support","feedback","watching","redeem","advisories","footer","hero"]),_=new Set(["packages","projects","repositories","repos","followers","following","stars","sponsors","sponsorship"]),R=new Set(["login","signup","logout","auth","callback","api","explore","pricing","about","blog","docs","help","terms","privacy","settings","profile","user","users","chat","share","discover","ranking","leaderboard","favorites","bookmarks","history","upgrade","billing","admin","static","assets","_next","favicon.ico","en","zh","zh-CN"]);function f(e){return e.split("/").filter((t)=>t.length>0)}function g(e,t,r,n){if(r.has(e.toLowerCase()))return null;if(n.has(t.toLowerCase()))return null;return{owner:e,repo:t}}function m(e){let t=f(e);if(t.length<2)return null;return g(t[0],t[1],S,_)}function h(e){let t=f(e);if(t.length<2)return null;return g(t[0],t[1],R,new Set)}function I(e){return`https://zread.ai/${e.owner}/${e.repo}`}function b(e){return`https://github.com/${e.owner}/${e.repo}`}function i(){if(location.hostname==="github.com"){let e=m(location.pathname);d(e===null?null:I(e))}else if(location.hostname==="zread.ai"){let e=h(location.pathname);p(e===null?null:b(e))}}var o=!1;function E(){if(o)return;o=!0,setTimeout(()=>{o=!1,i()},100)}new MutationObserver(E).observe(document.documentElement,{childList:!0,subtree:!0});window.addEventListener("popstate",E);setInterval(i,500);i();
