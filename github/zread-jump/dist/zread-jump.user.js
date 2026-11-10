@@ -12,8 +12,12 @@
 // @run-at       document-idle
 // @noframes
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=zread.ai
+// @homepageURL  https://github.com/bhxch/user-scripts
+// @supportURL   https://github.com/bhxch/user-scripts/issues
+// @license      MIT
+// @downloadURL  https://raw.githubusercontent.com/bhxch/user-scripts/main/github/zread-jump/dist/zread-jump.user.js
+// @updateURL    https://raw.githubusercontent.com/bhxch/user-scripts/main/github/zread-jump/dist/zread-jump.user.js
 // ==/UserScript==
-// 本仓库暂无 git remote，@updateURL/@downloadURL 无处可指；确定托管地址后补回这两行。
 function l(e){if(document.getElementById("zread-jump-style"))return;let t=document.createElement("style");t.id="zread-jump-style",t.textContent=e,document.head.appendChild(t)}function a(e){let t=document.getElementById("zread-jump-link");if(t===null)t=document.createElement("a"),t.id="zread-jump-link",t.innerHTML=e,t.target="_blank",t.rel="noreferrer";return t}function u(){let e=document.getElementById("zread-jump-link");if(e===null)return;e.closest("li")?.remove(),e.remove()}function c(e,t,r){if(e.getAttribute("href")!==t)e.setAttribute("href",t);e.title=r}function v(){let e=document.querySelector('[data-testid="star-button"]')?.closest("li")??null;if(e!==null)return e;return document.querySelector('[data-testid="breadcrumbs-repo-link"]')?.closest("li")??null}function d(e){l(`
 #zread-jump-link{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;
   border:1px solid rgba(31,35,40,.15);border-radius:6px;background:#f6f8fa;color:#24292f;

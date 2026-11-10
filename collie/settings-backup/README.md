@@ -9,8 +9,10 @@
 ## 安装
 
 Violentmonkey / Tampermonkey / Greasemonkey：把 `dist/collie-backup.user.js` 通过脚本管理器
-的"从文件安装"导入（本仓库暂无 remote，脚本元数据未写 `@updateURL`/`@downloadURL`，
-仓库托管后补回）。`@grant none`：脚本不依赖任何管理器 API。
+的"从文件安装"导入，或直接打开
+`https://raw.githubusercontent.com/bhxch/user-scripts/main/collie/settings-backup/dist/collie-backup.user.js`
+安装。脚本元数据已写 `@updateURL` / `@downloadURL`，装好后由脚本管理器按版本号自动更新。
+`@grant none`：脚本不依赖任何管理器 API。
 
 ## 构建
 

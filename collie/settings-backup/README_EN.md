@@ -10,9 +10,10 @@ backup/restore without touching the app or the bridge. Brought over from the col
 ## Install
 
 Violentmonkey / Tampermonkey / Greasemonkey: drop `dist/collie-backup.user.js` into the
-manager's "install from file" (this repo has no remote yet, so the metadata carries no
-`@updateURL`/`@downloadURL`; add them back once the repo is hosted). `@grant none`: the script
-needs no manager APIs.
+manager's "install from file", or open
+`https://raw.githubusercontent.com/bhxch/user-scripts/main/collie/settings-backup/dist/collie-backup.user.js`
+directly. The metadata carries `@updateURL` / `@downloadURL`, so the script manager updates
+the script by version. `@grant none`: the script needs no manager APIs.
 
 ## Build
 

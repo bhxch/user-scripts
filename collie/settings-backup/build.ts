@@ -14,8 +14,13 @@ const HEADER = `// ==UserScript==
 // @match        *://*/*
 // @grant        none
 // @run-at       document-idle
+// @noframes
+// @homepageURL  https://github.com/bhxch/user-scripts
+// @supportURL   https://github.com/bhxch/user-scripts/issues
+// @license      MIT
+// @downloadURL  https://raw.githubusercontent.com/bhxch/user-scripts/main/collie/settings-backup/dist/collie-backup.user.js
+// @updateURL    https://raw.githubusercontent.com/bhxch/user-scripts/main/collie/settings-backup/dist/collie-backup.user.js
 // ==/UserScript==
-// 本仓库暂无 git remote，@updateURL/@downloadURL 无处可指；确定托管地址后补回这两行。
 `;
 
 const result = await Bun.build({

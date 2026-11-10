@@ -17,8 +17,12 @@ const HEADER = `// ==UserScript==
 // @run-at       document-idle
 // @noframes
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=zread.ai
+// @homepageURL  https://github.com/bhxch/user-scripts
+// @supportURL   https://github.com/bhxch/user-scripts/issues
+// @license      MIT
+// @downloadURL  https://raw.githubusercontent.com/bhxch/user-scripts/main/github/zread-jump/dist/zread-jump.user.js
+// @updateURL    https://raw.githubusercontent.com/bhxch/user-scripts/main/github/zread-jump/dist/zread-jump.user.js
 // ==/UserScript==
-// 本仓库暂无 git remote，@updateURL/@downloadURL 无处可指；确定托管地址后补回这两行。
 `;
 
 const result = await Bun.build({

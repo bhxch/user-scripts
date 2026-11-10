@@ -9,9 +9,10 @@ other site's repo home (e.g. `github.com/zai-org/ZCode` ↔ `zread.ai/zai-org/ZC
 
 ## Install
 
-Tampermonkey / Violentmonkey: import `dist/zread-jump.user.js` via "Install from file"
-(this repo has no remote yet, so the metadata omits `@updateURL`/`@downloadURL`; add them
-back once hosted). `@grant none`: no manager APIs needed.
+Tampermonkey / Violentmonkey: import `dist/zread-jump.user.js` via "Install from file", or
+open `https://raw.githubusercontent.com/bhxch/user-scripts/main/github/zread-jump/dist/zread-jump.user.js`
+directly. The metadata carries `@updateURL` / `@downloadURL`, so the script manager updates
+the script by version. `@grant none`: no manager APIs needed.
 
 ## Build
 
